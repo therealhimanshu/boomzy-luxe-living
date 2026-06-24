@@ -518,11 +518,16 @@
 
       .catalogue {
         display: grid;
-        grid-template-columns: repeat(5, minmax(220px, 1fr));
+        grid-auto-flow: column;
+        grid-auto-columns: clamp(248px, 19vw, 292px);
+        grid-template-columns: none;
         gap: 18px;
         overflow-x: auto;
-        padding-bottom: 12px;
-        perspective: 1200px;
+        overflow-y: hidden;
+        padding: 0 0 18px;
+        overscroll-behavior-inline: contain;
+        scrollbar-gutter: stable;
+        perspective: none;
       }
 
       .product-card {
@@ -537,7 +542,7 @@
         overflow: hidden;
         background: #d6c5ad;
         color: #fffaf0;
-        transform: translateY(24px) rotateX(8deg);
+        transform: none;
         box-shadow: 0 28px 70px rgba(45, 36, 28, 0.18);
       }
 
@@ -592,17 +597,19 @@
         align-items: center;
         justify-content: center;
         margin-top: 18px;
-        max-width: 100%;
-        padding: 10px 14px;
+        width: min(100%, 190px);
+        padding: 11px 14px;
         border-radius: 999px;
         background: linear-gradient(135deg, #fff4cf, #d2a95f);
         color: #21160f;
         font-size: 12px;
         font-weight: 900;
         line-height: 1;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.07em;
         text-transform: uppercase;
         white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         box-shadow: 0 10px 26px rgba(0, 0, 0, 0.24);
       }
 
@@ -1144,8 +1151,9 @@
         }
 
         .catalogue {
-          grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
-          overflow-x: visible;
+          grid-auto-columns: minmax(240px, 32vw);
+          overflow-x: auto;
+          overflow-y: hidden;
           gap: 22px;
           perspective: none;
         }
@@ -1284,6 +1292,7 @@
         }
 
         .catalogue {
+          grid-auto-columns: minmax(255px, 82vw);
           gap: 24px;
         }
 
@@ -1301,6 +1310,7 @@
         }
 
         .enquire-link {
+          width: min(100%, 160px);
           padding: 9px 11px;
           font-size: 10px;
           letter-spacing: 0.06em;
@@ -1448,7 +1458,7 @@
                 <span>Window fashion</span>
                 <h3>Curtains & Drapes</h3>
                 <p>Curated textures and elegant finishes for residential and hospitality projects.</p>
-                <span class="enquire-link">Enquire for trade quote</span>
+                <span class="enquire-link">Request Quote</span>
               </span>
             </button>
             <button class="product-card" data-enquire="Blinds">
@@ -1457,7 +1467,7 @@
                 <span>Modern shading</span>
                 <h3>Blinds</h3>
                 <p>Refined light control solutions for offices, showrooms, and premium homes.</p>
-                <span class="enquire-link">Enquire for trade quote</span>
+                <span class="enquire-link">Request Quote</span>
               </span>
             </button>
             <button class="product-card" data-enquire="Upholstery">
@@ -1466,7 +1476,7 @@
                 <span>Soft surfaces</span>
                 <h3>Upholstery</h3>
                 <p>Warm layered fabrics selected for comfort, durability, and sophistication.</p>
-                <span class="enquire-link">Enquire for trade quote</span>
+                <span class="enquire-link">Request Quote</span>
               </span>
             </button>
             <button class="product-card" data-enquire="Wallpapers">
@@ -1475,7 +1485,7 @@
                 <span>Statement walls</span>
                 <h3>Wallpapers</h3>
                 <p>Decorative surfaces that make rooms feel composed, premium, and memorable.</p>
-                <span class="enquire-link">Enquire for trade quote</span>
+                <span class="enquire-link">Request Quote</span>
               </span>
             </button>
             <button class="product-card" data-enquire="Wooden flooring">
@@ -1484,7 +1494,7 @@
                 <span>Floor finishes</span>
                 <h3>Wooden Flooring</h3>
                 <p>Elegant flooring options for warm, long-lasting interiors and project installs.</p>
-                <span class="enquire-link">Enquire for trade quote</span>
+                <span class="enquire-link">Request Quote</span>
               </span>
             </button>
           </div>

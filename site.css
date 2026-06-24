@@ -425,6 +425,10 @@ p {
   padding: 28px;
 }
 
+.about-panel .eyebrow {
+  margin-bottom: 5px;
+}
+
 .image-band {
   min-height: 520px;
   border-radius: 8px;
