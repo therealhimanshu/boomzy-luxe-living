@@ -1,0 +1,1733 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luxe Living | B2B Trade Showroom</title>
+    <style>
+      :root {
+        --cream: #f6f1e7;
+        --paper: #fffaf0;
+        --linen: #e9decc;
+        --taupe: #97836d;
+        --bronze: #9b704a;
+        --gold: #c9a45b;
+        --ink: #2d241c;
+        --soft: rgba(255, 250, 240, 0.76);
+        --glass: rgba(255, 250, 240, 0.18);
+        --shadow: 0 28px 80px rgba(45, 36, 28, 0.2);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(201, 164, 91, 0.26), transparent 34rem),
+          linear-gradient(135deg, #fbf7ee, #eadfce 58%, #d8c7ae);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(110deg, transparent 0 38%, rgba(201, 164, 91, 0.11) 38% 39%, transparent 39% 100%),
+          repeating-linear-gradient(90deg, rgba(45, 36, 28, 0.025) 0 1px, transparent 1px 92px);
+        opacity: 0.8;
+        z-index: 0;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      button,
+      input,
+      textarea,
+      select {
+        font: inherit;
+      }
+
+      .grain {
+        position: fixed;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        opacity: 0.12;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.48'/%3E%3C/svg%3E");
+      }
+
+      #aura {
+        position: fixed;
+        inset: 0;
+        z-index: 2;
+        pointer-events: none;
+        mix-blend-mode: screen;
+        opacity: 0.46;
+      }
+
+      .site {
+        position: relative;
+        z-index: 3;
+      }
+
+      .nav {
+        position: fixed;
+        top: 18px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 20;
+        width: min(1120px, calc(100% - 28px));
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 12px 14px 12px 18px;
+        border: 1px solid rgba(255, 250, 240, 0.42);
+        border-radius: 999px;
+        background: rgba(54, 43, 32, 0.42);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 18px 48px rgba(45, 36, 28, 0.14);
+        color: #fffaf0;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 190px;
+      }
+
+      .monogram {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        color: var(--ink);
+        background: linear-gradient(145deg, #fff8e7, #caa45f);
+        font-family: Georgia, serif;
+        font-weight: 700;
+        font-size: 22px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      }
+
+      .brand .monogram {
+        overflow: hidden;
+        padding: 7px;
+      }
+
+      .brand .monogram img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .brand-wordmark {
+        display: block;
+      }
+
+      .brand strong {
+        display: block;
+        letter-spacing: 0.14em;
+        font-size: 13px;
+      }
+
+      .brand-wordmark span {
+        display: block;
+        margin-top: 2px;
+        color: rgba(255, 250, 240, 0.9);
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-size: 13px;
+        color: rgba(255, 250, 240, 0.82);
+      }
+
+      .menu-toggle {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border: 1px solid rgba(255, 250, 240, 0.38);
+        border-radius: 999px;
+        color: #fffaf0;
+        background: rgba(255, 250, 240, 0.12);
+        cursor: pointer;
+      }
+
+      .menu-toggle span {
+        position: relative;
+        display: block;
+        width: 18px;
+        height: 2px;
+        border-radius: 999px;
+        background: currentColor;
+      }
+
+      .menu-toggle span::before,
+      .menu-toggle span::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 18px;
+        height: 2px;
+        border-radius: 999px;
+        background: currentColor;
+      }
+
+      .menu-toggle span::before {
+        top: -6px;
+      }
+
+      .menu-toggle span::after {
+        top: 6px;
+      }
+
+      .pill-button {
+        border: 0;
+        cursor: pointer;
+        color: var(--ink);
+        background: linear-gradient(135deg, #fff6da, #c59b50);
+        border-radius: 999px;
+        padding: 12px 18px;
+        font-weight: 800;
+        box-shadow: 0 12px 34px rgba(115, 82, 42, 0.2);
+      }
+
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        padding: 128px clamp(24px, 6vw, 86px) 70px;
+        perspective: 1400px;
+        background:
+          linear-gradient(90deg, rgba(20, 14, 10, 0.86) 0%, rgba(40, 29, 20, 0.7) 42%, rgba(40, 29, 20, 0.3) 72%, rgba(20, 14, 10, 0.2) 100%),
+          linear-gradient(180deg, rgba(20, 14, 10, 0.28), rgba(20, 14, 10, 0.78)),
+          url("assets/home-hero.png") center / cover no-repeat;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background:
+          radial-gradient(circle at 18% 34%, rgba(201, 164, 91, 0.28), transparent 28rem),
+          linear-gradient(110deg, rgba(255, 250, 240, 0.12) 0 1px, transparent 1px 100%);
+        background-size: auto, 92px 100%;
+        pointer-events: none;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: linear-gradient(180deg, rgba(255, 250, 240, 0.08), transparent 34%, rgba(45, 36, 28, 0.55));
+        pointer-events: none;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 9px 13px;
+        border: 1px solid rgba(155, 112, 74, 0.2);
+        border-radius: 999px;
+        background: rgba(255, 250, 240, 0.52);
+        color: #6d553d;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--gold);
+        box-shadow: 0 0 22px var(--gold);
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: Georgia, "Times New Roman", serif;
+        margin: 0;
+        font-weight: 500;
+        line-height: 0.95;
+      }
+
+      h1 {
+        margin-top: 22px;
+        font-size: clamp(64px, 10vw, 142px);
+        letter-spacing: 0.02em;
+      }
+
+      .hero-copy p {
+        max-width: 650px;
+        margin: 24px 0 0;
+        color: rgba(255, 250, 240, 0.9);
+        font-size: clamp(18px, 2.1vw, 24px);
+        line-height: 1.55;
+      }
+
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 34px;
+      }
+
+      .ghost-button {
+        border: 1px solid rgba(255, 250, 240, 0.42);
+        border-radius: 999px;
+        padding: 12px 18px;
+        color: #fffaf0;
+        background: rgba(255, 250, 240, 0.12);
+        backdrop-filter: blur(14px);
+        font-weight: 800;
+      }
+
+      .trade-strip {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        max-width: 680px;
+        margin-top: 42px;
+      }
+
+      .metric {
+        padding: 18px;
+        border-radius: 8px;
+        background: rgba(255, 250, 240, 0.14);
+        border: 1px solid rgba(255, 250, 240, 0.28);
+        backdrop-filter: blur(16px);
+      }
+
+      .metric strong {
+        display: block;
+        color: #ffe5a3;
+        font-size: 25px;
+        font-family: Georgia, serif;
+      }
+
+      .metric span {
+        display: block;
+        margin-top: 4px;
+        color: rgba(255, 250, 240, 0.82);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .scene {
+        min-height: 680px;
+        position: relative;
+        transform-style: preserve-3d;
+      }
+
+      .hero-card {
+        position: absolute;
+        inset: 4% 5% 8% 8%;
+        border-radius: 8px;
+        overflow: hidden;
+        transform: rotateY(-14deg) rotateX(4deg) translateZ(30px);
+        box-shadow: var(--shadow);
+        background: #cbbda8;
+      }
+
+      .hero-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .hero-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent 45%, rgba(45, 36, 28, 0.55));
+      }
+
+      .floating-panel {
+        position: absolute;
+        left: -5%;
+        bottom: 8%;
+        width: min(430px, 72%);
+        padding: 24px;
+        border: 1px solid rgba(255, 250, 240, 0.55);
+        border-radius: 8px;
+        background: rgba(255, 250, 240, 0.72);
+        backdrop-filter: blur(18px);
+        box-shadow: 0 24px 60px rgba(45, 36, 28, 0.18);
+        transform: rotateY(16deg) translateZ(120px);
+      }
+
+      .floating-panel h2 {
+        font-size: clamp(32px, 4vw, 56px);
+      }
+
+      .floating-panel p {
+        margin: 12px 0 0;
+        color: rgba(45, 36, 28, 0.68);
+        line-height: 1.5;
+      }
+
+      .orbit {
+        position: absolute;
+        right: -8%;
+        top: 10%;
+        width: 235px;
+        height: 235px;
+        border: 1px solid rgba(201, 164, 91, 0.45);
+        border-radius: 50%;
+        transform-style: preserve-3d;
+        animation: orbit 12s linear infinite;
+      }
+
+      .orbit span {
+        position: absolute;
+        width: 68px;
+        height: 68px;
+        border-radius: 50%;
+        background: linear-gradient(145deg, #fff6da, #b78b44);
+        box-shadow: 0 16px 42px rgba(115, 82, 42, 0.24);
+      }
+
+      .orbit span:nth-child(1) {
+        left: 50%;
+        top: -34px;
+      }
+
+      .orbit span:nth-child(2) {
+        right: -18px;
+        bottom: 20px;
+        transform: scale(0.72);
+      }
+
+      .orbit span:nth-child(3) {
+        left: -18px;
+        bottom: 42px;
+        transform: scale(0.5);
+      }
+
+      @keyframes orbit {
+        to {
+          transform: rotateZ(360deg) rotateY(22deg);
+        }
+      }
+
+      section {
+        padding: 90px clamp(24px, 6vw, 86px);
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 28px;
+        align-items: end;
+        margin-bottom: 34px;
+      }
+
+      .section-head h2 {
+        max-width: 760px;
+        font-size: clamp(42px, 6vw, 84px);
+      }
+
+      .section-head p {
+        max-width: 460px;
+        color: rgba(45, 36, 28, 0.66);
+        line-height: 1.6;
+      }
+
+      .showroom {
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 20px;
+      }
+
+      .showroom-main,
+      .showroom-side {
+        min-height: 540px;
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: var(--shadow);
+      }
+
+      .showroom-main img,
+      .showroom-side img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .showroom-label {
+        position: absolute;
+        left: 24px;
+        bottom: 24px;
+        max-width: 460px;
+        padding: 22px;
+        border-radius: 8px;
+        background: rgba(255, 250, 240, 0.74);
+        backdrop-filter: blur(15px);
+      }
+
+      .showroom-label h3 {
+        font-size: 36px;
+      }
+
+      .showroom-label p {
+        margin: 10px 0 0;
+        color: rgba(45, 36, 28, 0.68);
+        line-height: 1.5;
+      }
+
+      .catalogue {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(220px, 1fr));
+        gap: 18px;
+        overflow-x: auto;
+        padding-bottom: 12px;
+        perspective: 1200px;
+      }
+
+      .product-card {
+        min-height: 430px;
+        position: relative;
+        isolation: isolate;
+        border: 0;
+        text-align: left;
+        border-radius: 8px;
+        padding: 0;
+        cursor: pointer;
+        overflow: hidden;
+        background: #d6c5ad;
+        color: #fffaf0;
+        transform: translateY(24px) rotateX(8deg);
+        box-shadow: 0 28px 70px rgba(45, 36, 28, 0.18);
+      }
+
+      .product-card img {
+        width: 100%;
+        height: 100%;
+        min-height: 430px;
+        object-fit: cover;
+        transform: scale(1.05);
+        transition: transform 700ms ease;
+      }
+
+      .product-card:hover img {
+        transform: scale(1.12);
+      }
+
+      .product-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: linear-gradient(180deg, transparent 34%, rgba(31, 24, 18, 0.78));
+      }
+
+      .product-info {
+        position: absolute;
+        inset: auto 0 0;
+        z-index: 2;
+        padding: 22px;
+      }
+
+      .product-info span {
+        color: rgba(255, 250, 240, 0.76);
+        font-size: 12px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      .product-info h3 {
+        margin-top: 8px;
+        font-size: 33px;
+      }
+
+      .product-info p {
+        color: rgba(255, 250, 240, 0.82);
+        line-height: 1.45;
+        margin: 12px 0 0;
+      }
+
+      .enquire-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 18px;
+        max-width: 100%;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #fff4cf, #d2a95f);
+        color: #21160f;
+        font-size: 12px;
+        font-weight: 900;
+        line-height: 1;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        white-space: nowrap;
+        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.24);
+      }
+
+      .trade {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+
+      .trade-card {
+        border-radius: 8px;
+        border: 1px solid rgba(155, 112, 74, 0.14);
+        background: rgba(255, 250, 240, 0.55);
+        padding: 26px;
+        min-height: 220px;
+        box-shadow: 0 22px 56px rgba(45, 36, 28, 0.08);
+      }
+
+      .trade-card strong {
+        display: block;
+        font-family: Georgia, serif;
+        font-size: 32px;
+        color: #7b5432;
+      }
+
+      .trade-card h3 {
+        margin-top: 28px;
+        font-size: 26px;
+      }
+
+      .trade-card p {
+        color: rgba(45, 36, 28, 0.66);
+        line-height: 1.5;
+      }
+
+      .contact-band {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: stretch;
+        gap: 0;
+        padding: 0;
+        margin: 60px clamp(24px, 6vw, 86px) 90px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        background: #3e3025;
+        color: #fffaf0;
+      }
+
+      .contact-band img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .contact-copy {
+        padding: clamp(36px, 6vw, 76px);
+      }
+
+      .contact-copy h2 {
+        font-size: clamp(44px, 6vw, 86px);
+        line-height: 1.08;
+        max-width: 780px;
+      }
+
+      .contact-copy p {
+        max-width: 620px;
+        color: rgba(255, 250, 240, 0.74);
+        line-height: 1.65;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin: 28px 0;
+      }
+
+      .contact-grid a,
+      .contact-grid span {
+        padding: 14px;
+        border-radius: 8px;
+        background: rgba(255, 250, 240, 0.1);
+        color: rgba(255, 250, 240, 0.92);
+      }
+
+      dialog {
+        width: min(760px, calc(100% - 28px));
+        padding: 0;
+        border: 0;
+        border-radius: 8px;
+        background: #fffaf0;
+        color: var(--ink);
+        box-shadow: 0 42px 120px rgba(25, 18, 12, 0.42);
+      }
+
+      dialog::backdrop {
+        background: rgba(31, 24, 18, 0.62);
+        backdrop-filter: blur(8px);
+      }
+
+      .modal-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 26px;
+        border-bottom: 1px solid rgba(45, 36, 28, 0.1);
+      }
+
+      .modal-head h2 {
+        font-size: 40px;
+      }
+
+      .close {
+        width: 42px;
+        height: 42px;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(45, 36, 28, 0.08);
+        cursor: pointer;
+        font-size: 24px;
+      }
+
+      form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        padding: 26px;
+      }
+
+      label {
+        display: grid;
+        gap: 7px;
+        color: rgba(45, 36, 28, 0.74);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        border: 1px solid rgba(45, 36, 28, 0.16);
+        border-radius: 8px;
+        background: white;
+        color: var(--ink);
+        padding: 13px 14px;
+        outline: none;
+      }
+
+      textarea,
+      .wide {
+        grid-column: 1 / -1;
+      }
+
+      textarea {
+        min-height: 110px;
+        resize: vertical;
+      }
+
+      .submit-row {
+        grid-column: 1 / -1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 8px;
+      }
+
+      .submit-row small {
+        color: rgba(45, 36, 28, 0.72);
+        line-height: 1.4;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(36px);
+        transition: opacity 700ms ease, transform 700ms ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .intro-screen {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 50% 42%, rgba(255, 246, 218, 0.98), rgba(234, 223, 206, 0.94) 44%, rgba(45, 36, 28, 0.92) 100%),
+          #eadfce;
+        pointer-events: none;
+        animation: introExit 4.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      .intro-screen::before,
+      .intro-screen::after {
+        content: "";
+        position: absolute;
+        border: 1px solid rgba(201, 164, 91, 0.55);
+        border-radius: 50%;
+        opacity: 0;
+        animation: introRing 3.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      .intro-screen::before {
+        width: 42vmin;
+        height: 42vmin;
+      }
+
+      .intro-screen::after {
+        width: 66vmin;
+        height: 66vmin;
+        animation-delay: 0.22s;
+      }
+
+      .intro-inner {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        justify-items: center;
+        gap: 18px;
+        transform-style: preserve-3d;
+        animation: introFloat 4.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      .intro-logo {
+        width: clamp(120px, 22vw, 260px);
+        aspect-ratio: 1;
+        padding: clamp(18px, 3vw, 32px);
+        border-radius: 50%;
+        background: rgba(255, 250, 240, 0.78);
+        box-shadow:
+          0 30px 90px rgba(45, 36, 28, 0.3),
+          inset 0 0 0 1px rgba(201, 164, 91, 0.24);
+      }
+
+      .intro-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .intro-title {
+        overflow: hidden;
+        text-align: center;
+      }
+
+      .intro-title strong {
+        display: block;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(42px, 8vw, 112px);
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        animation: introText 3.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      .intro-title span {
+        display: block;
+        margin-top: 12px;
+        color: rgba(45, 36, 28, 0.64);
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        animation: introText 3.7s 0.16s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      body.intro-active .site {
+        animation: siteEnter 1.4s 3.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      @keyframes introRing {
+        0% {
+          opacity: 0;
+          transform: scale(0.45) rotateX(70deg);
+        }
+        34% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          transform: scale(1.45) rotateX(70deg);
+        }
+      }
+
+      @keyframes introFloat {
+        0% {
+          opacity: 0;
+          transform: translateY(34px) rotateX(18deg) scale(0.88);
+          filter: blur(12px);
+        }
+        24% {
+          opacity: 1;
+          filter: blur(0);
+        }
+        72% {
+          opacity: 1;
+          transform: translateY(0) rotateX(0) scale(1);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-26px) rotateX(-12deg) scale(1.08);
+          filter: blur(10px);
+        }
+      }
+
+      @keyframes introText {
+        0% {
+          transform: translateY(110%);
+        }
+        28%,
+        78% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-115%);
+        }
+      }
+
+      @keyframes introExit {
+        0%,
+        78% {
+          opacity: 1;
+          visibility: visible;
+        }
+        100% {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+
+      @keyframes siteEnter {
+        from {
+          opacity: 0;
+          transform: translateY(24px) scale(0.985);
+          filter: blur(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+          filter: blur(0);
+        }
+      }
+
+      @media (max-width: 1000px) {
+        .hero,
+        .showroom,
+        .contact-band {
+          grid-template-columns: 1fr;
+        }
+
+        .scene {
+          min-height: 560px;
+        }
+
+        .trade {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .section-head {
+          display: block;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .nav {
+          position: absolute;
+          border-radius: 8px;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .hero {
+          padding-top: 118px;
+        }
+
+        .scene {
+          min-height: 480px;
+        }
+
+        .hero-card {
+          inset: 0;
+          transform: rotateY(-6deg) rotateX(2deg);
+        }
+
+        .floating-panel {
+          left: 14px;
+          bottom: 14px;
+          width: calc(100% - 28px);
+          transform: translateZ(80px);
+        }
+
+        .orbit {
+          display: none;
+        }
+
+        .trade-strip,
+        .trade,
+        .contact-grid,
+        form {
+          grid-template-columns: 1fr;
+        }
+
+        section {
+          padding: 70px 18px;
+        }
+
+        .contact-band {
+          margin: 32px 18px 70px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      .nav {
+        background: rgba(45, 34, 25, 0.78);
+      }
+
+      .nav-links,
+      .brand-wordmark span {
+        color: rgba(255, 250, 240, 0.9);
+      }
+
+      .hero-copy p,
+      .section-head p,
+      .trade-card p,
+      p {
+        color: rgba(45, 36, 28, 0.82);
+      }
+
+      .hero h1 {
+        color: #fffaf0;
+        max-width: 880px;
+        text-shadow: 0 18px 54px rgba(0, 0, 0, 0.42);
+      }
+
+      .hero .eyebrow {
+        border-color: rgba(255, 250, 240, 0.36);
+        background: rgba(255, 250, 240, 0.14);
+        color: #fff2c8;
+        backdrop-filter: blur(14px);
+      }
+
+      .hero-copy {
+        width: min(820px, 100%);
+        padding-top: 34px;
+      }
+
+      .hero-copy p {
+        color: rgba(255, 250, 240, 0.92);
+        text-shadow: 0 10px 34px rgba(0, 0, 0, 0.42);
+      }
+
+      .hero .pill-button {
+        color: #241a13;
+        background: linear-gradient(135deg, #fff7dc, #d5ad62);
+      }
+
+      .hero .ghost-button {
+        color: #fffaf0;
+        background: rgba(255, 250, 240, 0.12);
+        border-color: rgba(255, 250, 240, 0.44);
+      }
+
+      .ghost-button,
+      .metric,
+      .trade-card {
+        background: rgba(255, 250, 240, 0.72);
+      }
+
+      .floating-panel,
+      .showroom-label {
+        background: rgba(255, 250, 240, 0.88);
+      }
+
+      .floating-panel p,
+      .showroom-label p,
+      .metric span {
+        color: rgba(45, 36, 28, 0.78);
+      }
+
+      .hero .metric {
+        background: rgba(22, 15, 10, 0.32);
+        border-color: rgba(255, 250, 240, 0.28);
+      }
+
+      .hero .metric strong {
+        color: #ffe7a8;
+      }
+
+      .hero .metric span {
+        color: rgba(255, 250, 240, 0.86);
+      }
+
+      .product-card::after {
+        background: linear-gradient(180deg, rgba(31, 24, 18, 0.04) 0%, rgba(31, 24, 18, 0.42) 42%, rgba(20, 14, 10, 0.92) 100%);
+      }
+
+      .product-info span,
+      .product-info p {
+        color: rgba(255, 250, 240, 0.92);
+      }
+
+      .product-info .enquire-link {
+        color: #21160f;
+      }
+
+      .contact-copy p,
+      .contact-grid a,
+      .contact-grid span {
+        color: rgba(255, 250, 240, 0.9);
+      }
+
+      .contact-grid a,
+      .contact-grid span {
+        background: rgba(255, 250, 240, 0.14);
+      }
+
+      @media (max-width: 1180px) {
+        .hero {
+          grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
+        }
+
+        .catalogue {
+          grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+          overflow-x: visible;
+          gap: 22px;
+          perspective: none;
+        }
+
+        .product-card {
+          transform: none;
+        }
+      }
+
+      @media (max-width: 860px) {
+        .nav {
+          align-items: stretch;
+          flex-wrap: wrap;
+          border-radius: 8px;
+          width: calc(100% - 24px);
+        }
+
+        .brand {
+          min-width: 0;
+          flex: 1 1 auto;
+        }
+
+        .nav-links {
+          order: 3;
+          width: 100%;
+          justify-content: space-between;
+          gap: 10px;
+          padding-top: 4px;
+        }
+
+        .menu-toggle {
+          display: inline-flex;
+          order: 2;
+        }
+
+        .nav > .pill-button {
+          order: 1;
+        }
+
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          align-items: stretch;
+          padding: 12px;
+          border-radius: 8px;
+          background: rgba(24, 17, 12, 0.64);
+        }
+
+        .nav.nav-open .nav-links {
+          display: flex;
+        }
+
+        .nav-links a {
+          padding: 11px 12px;
+          border-radius: 8px;
+          background: rgba(255, 250, 240, 0.08);
+        }
+
+        .hero {
+          min-height: auto;
+          padding-top: 150px;
+          padding-bottom: 82px;
+          background-position: 48% center;
+        }
+
+        h1 {
+          font-size: clamp(48px, 16vw, 86px);
+        }
+
+        .section-head h2,
+        .contact-copy h2 {
+          font-size: clamp(34px, 10vw, 58px);
+          line-height: 1.1;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .brand strong {
+          font-size: 11px;
+        }
+
+        .brand-wordmark span {
+          display: none;
+        }
+
+        .pill-button,
+        .ghost-button {
+          width: 100%;
+        }
+
+        .nav > .pill-button {
+          width: auto;
+          padding-inline: 14px;
+        }
+
+        .hero-actions {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .hero {
+          min-height: 100svh;
+          padding-inline: 18px;
+          padding-top: 138px;
+          background:
+            linear-gradient(180deg, rgba(20, 14, 10, 0.76) 0%, rgba(20, 14, 10, 0.56) 38%, rgba(20, 14, 10, 0.88) 100%),
+            url("assets/home-hero.png") 42% center / cover no-repeat;
+        }
+
+        .hero-copy {
+          padding-top: 12px;
+        }
+
+        .hero-copy p {
+          font-size: 17px;
+        }
+
+        .hero h1 {
+          font-size: clamp(48px, 18vw, 78px);
+        }
+
+        .trade-strip {
+          grid-template-columns: 1fr;
+          margin-top: 28px;
+        }
+
+        .scene {
+          min-height: 380px;
+        }
+
+        .showroom-main,
+        .showroom-side,
+        .product-card img,
+        .product-card {
+          min-height: 360px;
+        }
+
+        .catalogue {
+          gap: 24px;
+        }
+
+        .product-info {
+          padding: 18px;
+        }
+
+        .product-info h3 {
+          font-size: 27px;
+        }
+
+        .product-info p {
+          font-size: 14px;
+          line-height: 1.35;
+        }
+
+        .enquire-link {
+          padding: 9px 11px;
+          font-size: 10px;
+          letter-spacing: 0.06em;
+        }
+
+        .showroom-label {
+          left: 12px;
+          right: 12px;
+          bottom: 12px;
+          max-width: none;
+          padding: 18px;
+        }
+
+        form,
+        .modal-head {
+          padding: 18px;
+        }
+
+        .submit-row {
+          align-items: stretch;
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .nav {
+          gap: 10px;
+          padding: 10px;
+        }
+
+        .menu-toggle {
+          width: 40px;
+          height: 40px;
+        }
+
+        .contact-copy h2 {
+          font-size: clamp(32px, 10vw, 44px);
+          line-height: 1.12;
+        }
+      }
+    </style>
+  </head>
+  <body class="intro-active">
+    <div class="intro-screen" aria-label="Luxe Living intro animation">
+      <div class="intro-inner">
+        <div class="intro-logo">
+          <img src="assets/luxe-ll-monogram.png" alt="Luxe Living monogram" />
+        </div>
+        <div class="intro-title">
+          <strong>LUXE LIVING</strong>
+          <span>Drapes for the class</span>
+        </div>
+      </div>
+    </div>
+    <canvas id="aura" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="site">
+      <nav class="nav">
+        <a class="brand" href="#top" aria-label="Luxe Living home">
+          <span class="monogram"><img src="assets/luxe-ll-monogram.png" alt="" /></span>
+          <span class="brand-wordmark">
+            <strong>LUXE LIVING</strong>
+            <span>Drapes for the class</span>
+          </span>
+        </a>
+        <div class="nav-links" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="collections.html">Collections</a>
+          <a href="product.html">Product</a>
+          <a href="about.html">About</a>
+        </div>
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+        </button>
+        <a class="pill-button" href="enquire.html">Enquire</a>
+      </nav>
+
+      <main id="top">
+        <section class="hero">
+          <div class="hero-copy reveal">
+            <span class="eyebrow">B2B Trade Interiors</span>
+            <h1>Luxe Living</h1>
+            <p>
+              Premium home decor for designers, retailers, architects, and project buyers.
+              Curated curtains, drapes, blinds, upholstery, wallpapers, and wooden flooring
+              crafted for beautiful commercial and residential spaces.
+            </p>
+            <div class="hero-actions">
+              <a class="pill-button" href="collections.html">Explore catalogue</a>
+              <a class="ghost-button" href="enquire.html">Start a project enquiry</a>
+            </div>
+            <div class="trade-strip" aria-label="Trade highlights">
+              <div class="metric"><strong>5</strong><span>Core categories</span></div>
+              <div class="metric"><strong>B2B</strong><span>Trade focused</span></div>
+              <div class="metric"><strong>Made</strong><span>For refined spaces</span></div>
+            </div>
+          </div>
+
+        </section>
+
+        <section id="showroom">
+          <div class="section-head reveal">
+            <h2>Curated luxury for refined interiors.</h2>
+            <p>
+              Discover warm textures, elegant finishes, and timeless decor solutions crafted for
+              homes, hospitality spaces, retail environments, and design-led projects.
+            </p>
+          </div>
+          <div class="showroom reveal">
+            <div class="showroom-main">
+              <img src="assets/curated-lounge.jpg" alt="Curated living room with Luxe Living window treatments" />
+              <div class="showroom-label">
+                <h3>Mission</h3>
+                <p>
+                  Transform spaces into expressions of beauty, comfort, and individuality through
+                  thoughtfully curated designs and uncompromising quality.
+                </p>
+              </div>
+            </div>
+            <div class="showroom-side">
+              <img src="assets/wallpaper-study.png" alt="Elegant study with plaid wallpaper, curtains, and warm wooden flooring" />
+              <div class="showroom-label">
+                <h3>Vision</h3>
+                <p>
+                  Redefine modern living by creating spaces that embody sophistication, comfort,
+                  and enduring luxury.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="catalogue">
+          <div class="section-head reveal">
+            <h2>Explore our signature collections.</h2>
+            <p>
+              From drapes and blinds to upholstery, wallpapers, and wooden flooring, every collection
+              is selected for beauty, comfort, durability, and enduring appeal.
+            </p>
+          </div>
+          <div class="catalogue reveal" aria-label="Product catalogue">
+            <button class="product-card" data-enquire="Curtains and drapes">
+              <img src="assets/curtain-detail.png" alt="Detailed curtains and drapes with lace trim" />
+              <span class="product-info">
+                <span>Window fashion</span>
+                <h3>Curtains & Drapes</h3>
+                <p>Curated textures and elegant finishes for residential and hospitality projects.</p>
+                <span class="enquire-link">Enquire for trade quote</span>
+              </span>
+            </button>
+            <button class="product-card" data-enquire="Blinds">
+              <img src="assets/blinds.jpg" alt="Luxury blinds collection" />
+              <span class="product-info">
+                <span>Modern shading</span>
+                <h3>Blinds</h3>
+                <p>Refined light control solutions for offices, showrooms, and premium homes.</p>
+                <span class="enquire-link">Enquire for trade quote</span>
+              </span>
+            </button>
+            <button class="product-card" data-enquire="Upholstery">
+              <img src="assets/upholstery.jpg" alt="Upholstery cushions and fabrics" />
+              <span class="product-info">
+                <span>Soft surfaces</span>
+                <h3>Upholstery</h3>
+                <p>Warm layered fabrics selected for comfort, durability, and sophistication.</p>
+                <span class="enquire-link">Enquire for trade quote</span>
+              </span>
+            </button>
+            <button class="product-card" data-enquire="Wallpapers">
+              <img src="assets/wallpapers.jpg" alt="Wallpaper collection with patterns and interior styling" />
+              <span class="product-info">
+                <span>Statement walls</span>
+                <h3>Wallpapers</h3>
+                <p>Decorative surfaces that make rooms feel composed, premium, and memorable.</p>
+                <span class="enquire-link">Enquire for trade quote</span>
+              </span>
+            </button>
+            <button class="product-card" data-enquire="Wooden flooring">
+              <img src="assets/wooden-flooring.jpg" alt="Wooden flooring in a luxury bedroom" />
+              <span class="product-info">
+                <span>Floor finishes</span>
+                <h3>Wooden Flooring</h3>
+                <p>Elegant flooring options for warm, long-lasting interiors and project installs.</p>
+                <span class="enquire-link">Enquire for trade quote</span>
+              </span>
+            </button>
+          </div>
+        </section>
+
+        <section id="trade">
+          <div class="section-head reveal">
+            <h2>A seamless process for trade partners.</h2>
+            <p>
+              Share your product interest, project scale, and finish preferences. Our team will help
+              with catalogue guidance, sample coordination, and tailored quotations.
+            </p>
+          </div>
+          <div class="trade reveal">
+            <div class="trade-card">
+              <strong>01</strong>
+              <h3>Choose a category</h3>
+              <p>Browse curated product families from drapes to flooring.</p>
+            </div>
+            <div class="trade-card">
+              <strong>02</strong>
+              <h3>Share trade details</h3>
+              <p>Company name, buyer role, project type, and preferred quantity.</p>
+            </div>
+            <div class="trade-card">
+              <strong>03</strong>
+              <h3>Request quote</h3>
+              <p>The enquiry is prepared for a catalogue, sample, or pricing response.</p>
+            </div>
+            <div class="trade-card">
+              <strong>04</strong>
+              <h3>Coordinate supply</h3>
+              <p>Designed for retailers, architects, interior designers, and project buyers.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" class="contact-band reveal">
+          <div class="contact-copy">
+            <span class="eyebrow">Contact us</span>
+            <h2>Start a Luxe Living trade enquiry.</h2>
+            <p>
+              For catalogues, samples, project quotations, and B2B product enquiries, reach the
+              Luxe Living team directly or share your requirements through the enquiry form.
+            </p>
+            <div class="contact-grid">
+              <a href="tel:+917404600307">+91 74046 00307</a>
+              <a href="tel:+917551000083">+91 75510 00083</a>
+              <a href="tel:+917838988661">+91 78389 88661</a>
+              <a href="mailto:luxeliving0707@gmail.com">luxeliving0707@gmail.com</a>
+              <a class="wide" href="https://www.luxeliving.in">www.luxeliving.in</a>
+            </div>
+            <button class="pill-button" data-enquire="General trade enquiry">Open enquiry form</button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="enquiryModal">
+      <div class="modal-head">
+        <div>
+          <span class="eyebrow">Trade enquiry</span>
+          <h2>Request product details</h2>
+        </div>
+        <button class="close" type="button" aria-label="Close enquiry form">&times;</button>
+      </div>
+      <form id="enquiryForm">
+        <label>
+          Product interest
+          <select name="product" id="productSelect">
+            <option>Curtains and drapes</option>
+            <option>Blinds</option>
+            <option>Upholstery</option>
+            <option>Wallpapers</option>
+            <option>Wooden flooring</option>
+            <option>Custom project enquiry</option>
+            <option>General trade enquiry</option>
+          </select>
+        </label>
+        <label>
+          Company name
+          <input name="company" placeholder="Your business name" required />
+        </label>
+        <label>
+          Contact person
+          <input name="name" placeholder="Full name" required />
+        </label>
+        <label>
+          Phone / WhatsApp
+          <input name="phone" placeholder="+91..." required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" placeholder="buyer@company.com" />
+        </label>
+        <label>
+          Buyer type
+          <select name="buyer">
+            <option>Interior designer</option>
+            <option>Architect</option>
+            <option>Retailer / dealer</option>
+            <option>Project buyer</option>
+            <option>Hospitality / commercial</option>
+          </select>
+        </label>
+        <label>
+          Approx. quantity
+          <input name="quantity" placeholder="Meters, rooms, sqft, or project scale" />
+        </label>
+        <label>
+          City
+          <input name="city" placeholder="Project or business city" />
+        </label>
+        <label class="wide">
+          Enquiry notes
+          <textarea name="notes" placeholder="Share finish preferences, project timeline, sample requirements, or quotation details."></textarea>
+        </label>
+        <div class="submit-row">
+          <small>Share your requirements and our team will follow up with catalogue, sample, or quotation support.</small>
+          <button class="pill-button" type="submit">Prepare enquiry</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script>
+      const canvas = document.querySelector("#aura");
+      const ctx = canvas.getContext("2d");
+      let width = 0;
+      let height = 0;
+      let particles = [];
+
+      const resize = () => {
+        width = canvas.width = window.innerWidth * window.devicePixelRatio;
+        height = canvas.height = window.innerHeight * window.devicePixelRatio;
+        particles = Array.from({ length: Math.min(90, Math.floor(window.innerWidth / 16)) }, () => ({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          r: (Math.random() * 3 + 1) * window.devicePixelRatio,
+          s: Math.random() * 0.35 + 0.08,
+          a: Math.random() * Math.PI * 2,
+        }));
+      };
+
+      const paint = () => {
+        ctx.clearRect(0, 0, width, height);
+        const glow = ctx.createRadialGradient(width * 0.72, height * 0.18, 0, width * 0.72, height * 0.18, width * 0.48);
+        glow.addColorStop(0, "rgba(255,235,176,.5)");
+        glow.addColorStop(1, "rgba(255,235,176,0)");
+        ctx.fillStyle = glow;
+        ctx.fillRect(0, 0, width, height);
+
+        ctx.fillStyle = "rgba(255,236,184,.72)";
+        for (const p of particles) {
+          p.a += p.s * 0.02;
+          p.y -= p.s * window.devicePixelRatio;
+          p.x += Math.cos(p.a) * 0.35;
+          if (p.y < -20) p.y = height + 20;
+          ctx.globalAlpha = 0.18 + Math.sin(p.a) * 0.1;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+        requestAnimationFrame(paint);
+      };
+
+      resize();
+      paint();
+      window.addEventListener("resize", resize);
+
+      document.querySelectorAll(".menu-toggle").forEach((button) => {
+        button.addEventListener("click", () => {
+          const nav = button.closest(".nav");
+          const isOpen = nav.classList.toggle("nav-open");
+          button.setAttribute("aria-expanded", String(isOpen));
+          button.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+        });
+      });
+
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          const nav = link.closest(".nav");
+          const button = nav.querySelector(".menu-toggle");
+          nav.classList.remove("nav-open");
+          if (button) {
+            button.setAttribute("aria-expanded", "false");
+            button.setAttribute("aria-label", "Open navigation menu");
+          }
+        });
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("visible");
+          });
+        },
+        { threshold: 0.16 }
+      );
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+      const scene = document.querySelector("[data-tilt]");
+      window.addEventListener("pointermove", (event) => {
+        if (!scene || window.innerWidth < 760) return;
+        const x = (event.clientX / window.innerWidth - 0.5) * 16;
+        const y = (event.clientY / window.innerHeight - 0.5) * -10;
+        scene.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+      });
+
+      const modal = document.querySelector("#enquiryModal");
+      const productSelect = document.querySelector("#productSelect");
+      const openModal = (product) => {
+        if (product) productSelect.value = product;
+        modal.showModal();
+      };
+
+      document.querySelectorAll("[data-enquire]").forEach((button) => {
+        button.addEventListener("click", () => openModal(button.dataset.enquire));
+      });
+
+      document.querySelector(".close").addEventListener("click", () => modal.close());
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) modal.close();
+      });
+
+      document.querySelector("#enquiryForm").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const data = Object.fromEntries(new FormData(event.currentTarget).entries());
+        const body = [
+          `Product interest: ${data.product}`,
+          `Company: ${data.company}`,
+          `Contact: ${data.name}`,
+          `Phone: ${data.phone}`,
+          `Email: ${data.email || "Not provided"}`,
+          `Buyer type: ${data.buyer}`,
+          `Quantity: ${data.quantity || "To discuss"}`,
+          `City: ${data.city || "Not provided"}`,
+          "",
+          data.notes || "No additional notes.",
+        ].join("\\n");
+        const mailto = `mailto:luxeliving0707@gmail.com?subject=${encodeURIComponent("Luxe Living B2B enquiry - " + data.product)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailto;
+      });
+    </script>
+  </body>
+</html>

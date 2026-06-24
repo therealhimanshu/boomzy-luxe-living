@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enquire | Luxe Living</title>
+    <link rel="stylesheet" href="site.css" />
+  </head>
+  <body>
+    <div class="site">
+      <nav class="nav">
+        <a class="brand" href="index.html" aria-label="Luxe Living home">
+          <span class="monogram"><img src="assets/luxe-ll-monogram.png" alt="" /></span>
+          <span class="brand-wordmark"><strong>LUXE LIVING</strong><span>Drapes for the class</span></span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="collections.html">Collections</a>
+          <a href="product.html">Product</a>
+          <a href="about.html">About</a>
+        </div>
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+        </button>
+        <a class="pill-button" href="enquire.html">Enquire</a>
+      </nav>
+
+      <main>
+        <section class="page-hero">
+          <div>
+            <span class="eyebrow">B2B enquiry</span>
+            <h1>Request a trade quote.</h1>
+            <p class="lead">
+              Tell Luxe Living what product you are interested in, the project scale, and your
+              business details. The team can respond with catalogue, sample, and quotation support.
+            </p>
+            <p>
+              Contact: +91 74046 00307, +91 75510 00083, +91 78389 88661<br />
+              Email: <a href="mailto:luxeliving0707@gmail.com">luxeliving0707@gmail.com</a>
+            </p>
+          </div>
+          <div class="hero-art">
+            <div class="tilt-card"><img src="assets/contact-drapes.jpg" alt="Luxury drapes close up" /></div>
+            <div class="glass-note">
+              <h3>Personalized trade support</h3>
+              <p>Pricing and recommendations are tailored to product choice, quantity, and project scope.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="product-panel">
+            <span class="eyebrow">Enquiry form</span>
+            <h2>Share product and project details.</h2>
+            <p>This form prepares an email to Luxe Living with the buyer's trade information.</p>
+            <form id="enquiryPageForm">
+              <label>
+                Product interest
+                <select name="product" id="productSelect">
+                  <option>Curtains and drapes</option>
+                  <option>Blinds</option>
+                  <option>Upholstery</option>
+                  <option>Wallpapers</option>
+                  <option>Wooden flooring</option>
+                  <option>Custom project enquiry</option>
+                  <option>General trade enquiry</option>
+                </select>
+              </label>
+              <label>
+                Company name
+                <input name="company" placeholder="Your business name" required />
+              </label>
+              <label>
+                Contact person
+                <input name="name" placeholder="Full name" required />
+              </label>
+              <label>
+                Phone / WhatsApp
+                <input name="phone" placeholder="+91..." required />
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" placeholder="buyer@company.com" />
+              </label>
+              <label>
+                Buyer type
+                <select name="buyer">
+                  <option>Interior designer</option>
+                  <option>Architect</option>
+                  <option>Retailer / dealer</option>
+                  <option>Project buyer</option>
+                  <option>Hospitality / commercial</option>
+                </select>
+              </label>
+              <label>
+                Approx. quantity
+                <input name="quantity" placeholder="Meters, rooms, sqft, or project scale" />
+              </label>
+              <label>
+                City
+                <input name="city" placeholder="Project or business city" />
+              </label>
+              <label class="wide">
+                Enquiry notes
+                <textarea name="notes" placeholder="Share finish preferences, timeline, sample needs, or quotation details."></textarea>
+              </label>
+              <div class="wide">
+                <button class="pill-button" type="submit">Prepare enquiry email</button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <strong>LUXE LIVING</strong>
+        <a href="https://www.luxeliving.in">www.luxeliving.in</a>
+      </footer>
+    </div>
+    <script src="site.js"></script>
+  </body>
+</html>

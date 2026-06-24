@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product | Luxe Living</title>
+    <link rel="stylesheet" href="site.css" />
+  </head>
+  <body>
+    <div class="site">
+      <nav class="nav">
+        <a class="brand" href="index.html" aria-label="Luxe Living home">
+          <span class="monogram"><img src="assets/luxe-ll-monogram.png" alt="" /></span>
+          <span class="brand-wordmark"><strong>LUXE LIVING</strong><span>Drapes for the class</span></span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="collections.html">Collections</a>
+          <a href="product.html">Product</a>
+          <a href="about.html">About</a>
+        </div>
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+        </button>
+        <a class="pill-button" href="enquire.html">Enquire</a>
+      </nav>
+
+      <main>
+        <section class="page-hero">
+          <div>
+            <span class="eyebrow">Featured product</span>
+            <h1 id="productTitle">Curtains & Drapes</h1>
+            <p class="lead" id="productLead">
+              A curated showcase of exceptional design and craftsmanship, selected for trade buyers
+              who need elegant finishes across premium projects.
+            </p>
+            <p>
+              Choose a collection below to preview its product story. For actual ordering, buyers send
+              an enquiry with quantity, project type, and sample requirements.
+            </p>
+            <p><a class="pill-button" id="enquireLink" href="enquire.html?product=Curtains%20and%20drapes">Enquire about this product</a></p>
+          </div>
+          <div class="hero-art">
+            <div class="tilt-card"><img id="productImage" src="assets/curtain-detail.png" alt="Curtains and drapes product image" /></div>
+            <div class="glass-note">
+              <h3>Trade ready</h3>
+              <p>Built for catalogue requests, project quotes, sample coordination, and dealer conversations.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="product-grid">
+            <div class="product-panel">
+              <span class="eyebrow">Product selector</span>
+              <h2>Browse category details.</h2>
+              <p>Select a category to update the product page preview.</p>
+              <label>
+                Collection
+                <select id="categorySelect">
+                  <option value="curtains">Curtains and drapes</option>
+                  <option value="blinds">Blinds</option>
+                  <option value="upholstery">Upholstery</option>
+                  <option value="wallpapers">Wallpapers</option>
+                  <option value="flooring">Wooden flooring</option>
+                </select>
+              </label>
+              <ul class="spec-list">
+                <li><span>Buyer fit</span><strong>Designers, architects, dealers</strong></li>
+                <li><span>Order path</span><strong>Enquiry before quote</strong></li>
+                <li><span>Use cases</span><strong>Homes, retail, hospitality</strong></li>
+                <li><span>Support</span><strong>Samples and catalogue request</strong></li>
+              </ul>
+              <a class="ghost-button" href="collections.html">Back to collections</a>
+            </div>
+            <div class="product-panel product-image">
+              <img id="detailImage" src="assets/curated-lounge.jpg" alt="Luxe Living curated interior" />
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <strong>LUXE LIVING</strong>
+        <a href="mailto:luxeliving0707@gmail.com">luxeliving0707@gmail.com</a>
+      </footer>
+    </div>
+    <script src="site.js"></script>
+  </body>
+</html>
