@@ -23,40 +23,40 @@ const products = {
   curtains: {
     title: "Curtains & Drapes",
     label: "Curtains and drapes",
-    image: "assets/curtain-detail.png",
-    detail: "assets/curated-lounge.jpg",
+    image: "assets/curtain-detail.webp",
+    detail: "assets/curated-lounge.webp",
     lead:
       "A curated showcase of exceptional design and craftsmanship, selected for trade buyers who need elegant finishes across premium projects.",
   },
   blinds: {
     title: "Blinds",
     label: "Blinds",
-    image: "assets/blinds.jpg",
-    detail: "assets/hero-suite.jpg",
+    image: "assets/blinds.webp",
+    detail: "assets/hero-suite.webp",
     lead:
       "Refined light control solutions for commercial, residential, and showroom environments where comfort and visual polish both matter.",
   },
   upholstery: {
     title: "Upholstery",
     label: "Upholstery",
-    image: "assets/upholstery.jpg",
-    detail: "assets/distinctive-designs.jpg",
+    image: "assets/upholstery.webp",
+    detail: "assets/distinctive-designs.webp",
     lead:
       "Warm layered fabrics chosen for comfort, durability, and sophistication across seating, soft furnishings, and project interiors.",
   },
   wallpapers: {
     title: "Wallpapers",
     label: "Wallpapers",
-    image: "assets/wallpapers.jpg",
-    detail: "assets/wallpapers.jpg",
+    image: "assets/wallpapers.webp",
+    detail: "assets/wallpapers.webp",
     lead:
       "Decorative surfaces and statement patterns that give rooms individuality, depth, and a finished premium character.",
   },
   flooring: {
     title: "Wooden Flooring",
     label: "Wooden flooring",
-    image: "assets/wooden-flooring.jpg",
-    detail: "assets/wooden-flooring.jpg",
+    image: "assets/wooden-flooring.webp",
+    detail: "assets/wooden-flooring.webp",
     lead:
       "Elegant floor finishes for warm, long-lasting interiors and project installations across homes, retail, and hospitality.",
   },
