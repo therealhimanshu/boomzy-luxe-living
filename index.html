@@ -23,7 +23,24 @@
       }
 
       html {
+        background: #2b2119;
         scroll-behavior: smooth;
+        scrollbar-color: rgba(201, 164, 91, 0.72) #2b2119;
+        scrollbar-width: thin;
+      }
+
+      html::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      html::-webkit-scrollbar-track {
+        background: #2b2119;
+      }
+
+      html::-webkit-scrollbar-thumb {
+        border: 2px solid #2b2119;
+        border-radius: 999px;
+        background: rgba(201, 164, 91, 0.72);
       }
 
       body {
@@ -982,7 +999,11 @@
 
       @media (max-width: 720px) {
         .nav {
-          position: absolute;
+          position: sticky;
+          top: 0;
+          left: auto;
+          transform: none;
+          margin: 12px auto -77px;
           border-radius: 8px;
         }
 
@@ -1260,7 +1281,8 @@
           padding-top: 138px;
           background:
             linear-gradient(180deg, rgba(20, 14, 10, 0.76) 0%, rgba(20, 14, 10, 0.56) 38%, rgba(20, 14, 10, 0.88) 100%),
-            url("assets/brochure/home-hero-mobile.webp") 50% center / cover no-repeat;
+            url("assets/brochure/home-hero-mobile.webp") 50% 58% / auto 118% no-repeat;
+          background-color: #2b2119;
         }
 
         .hero-copy {
@@ -1349,6 +1371,12 @@
         .contact-copy h2 {
           font-size: clamp(32px, 10vw, 44px);
           line-height: 1.12;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .hero {
+          padding-top: 138px;
         }
       }
     </style>

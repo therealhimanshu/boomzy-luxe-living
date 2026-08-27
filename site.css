@@ -14,7 +14,24 @@
 }
 
 html {
+  background: #eadfce;
   scroll-behavior: smooth;
+  scrollbar-color: rgba(93, 69, 50, 0.58) #eadfce;
+  scrollbar-width: thin;
+}
+
+html::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #eadfce;
+}
+
+html::-webkit-scrollbar-thumb {
+  border: 2px solid #eadfce;
+  border-radius: 999px;
+  background: rgba(93, 69, 50, 0.58);
 }
 
 body {
@@ -559,7 +576,11 @@ textarea {
 
 @media (max-width: 720px) {
   .nav {
-    position: absolute;
+    position: sticky;
+    top: 0;
+    left: auto;
+    transform: none;
+    margin: 12px auto 0;
     border-radius: 8px;
   }
 
@@ -573,17 +594,34 @@ textarea {
 
   .hero-art {
     min-height: 440px;
+    overflow: hidden;
+    border-radius: 8px;
+    transform-style: flat;
+    isolation: isolate;
+    contain: paint;
+    clip-path: inset(0 round 8px);
   }
 
   .tilt-card {
     inset: 0;
-    transform: rotateY(-6deg) rotateX(2deg);
+    border-radius: inherit;
+    transform: none;
+  }
+
+  .hero-art .tilt-card > img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    margin: 0;
+    border-radius: inherit;
+    object-position: center;
+    transform: none;
   }
 
   .glass-note {
     left: 14px;
     bottom: 14px;
-    transform: translateZ(70px);
+    transform: none;
   }
 
   .content-section {
@@ -829,5 +867,12 @@ textarea {
 
   .nav-links {
     font-size: 12px;
+  }
+}
+
+@media (max-width: 720px) {
+  .page-hero {
+    padding-top: 64px;
+    overflow: clip;
   }
 }
