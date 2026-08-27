@@ -23,40 +23,40 @@ const products = {
   curtains: {
     title: "Curtains & Drapes",
     label: "Curtains and drapes",
-    image: "assets/curtain-detail.webp",
-    detail: "assets/curated-lounge.webp",
+    image: "assets/brochure/curtains-card.webp",
+    detail: "assets/brochure/curtains-detail.webp",
     lead:
       "A curated showcase of exceptional design and craftsmanship, selected for trade buyers who need elegant finishes across premium projects.",
   },
   blinds: {
     title: "Blinds",
     label: "Blinds",
-    image: "assets/blinds.webp",
-    detail: "assets/hero-suite.webp",
+    image: "assets/brochure/blinds-card.webp",
+    detail: "assets/brochure/blinds-detail.webp",
     lead:
       "Refined light control solutions for commercial, residential, and showroom environments where comfort and visual polish both matter.",
   },
   upholstery: {
     title: "Upholstery",
     label: "Upholstery",
-    image: "assets/upholstery.webp",
-    detail: "assets/distinctive-designs.webp",
+    image: "assets/brochure/upholstery-card.webp",
+    detail: "assets/brochure/upholstery-detail.webp",
     lead:
       "Warm layered fabrics chosen for comfort, durability, and sophistication across seating, soft furnishings, and project interiors.",
   },
   wallpapers: {
     title: "Wallpapers",
     label: "Wallpapers",
-    image: "assets/wallpapers.webp",
-    detail: "assets/wallpapers.webp",
+    image: "assets/brochure/wallpapers-card.webp",
+    detail: "assets/brochure/wallpapers-detail.webp",
     lead:
       "Decorative surfaces and statement patterns that give rooms individuality, depth, and a finished premium character.",
   },
   flooring: {
     title: "Wooden Flooring",
     label: "Wooden flooring",
-    image: "assets/wooden-flooring.webp",
-    detail: "assets/wooden-flooring.webp",
+    image: "assets/brochure/flooring-card.webp",
+    detail: "assets/brochure/flooring-detail.webp",
     lead:
       "Elegant floor finishes for warm, long-lasting interiors and project installations across homes, retail, and hospitality.",
   },
@@ -101,23 +101,63 @@ if (productSelect && productFromUrl) {
 
 const enquiryForm = document.querySelector("#enquiryPageForm");
 if (enquiryForm) {
-  enquiryForm.addEventListener("submit", (event) => {
+  const status = document.querySelector("#enquiryStatus");
+  const submitButton = enquiryForm.querySelector('button[type="submit"]');
+  const defaultButtonLabel = submitButton.dataset.defaultLabel;
+
+  const setFormState = (state, message) => {
+    status.dataset.state = state;
+    status.textContent = message;
+  };
+
+  enquiryForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const data = Object.fromEntries(new FormData(enquiryForm).entries());
-    const body = [
-      `Product interest: ${data.product}`,
-      `Company: ${data.company}`,
-      `Contact: ${data.name}`,
-      `Phone: ${data.phone}`,
-      `Email: ${data.email || "Not provided"}`,
-      `Buyer type: ${data.buyer}`,
-      `Quantity: ${data.quantity || "To discuss"}`,
-      `City: ${data.city || "Not provided"}`,
-      "",
-      data.notes || "No additional notes.",
-    ].join("\n");
-    window.location.href = `mailto:luxeliving0707@gmail.com?subject=${encodeURIComponent(
-      "Luxe Living B2B enquiry - " + data.product
-    )}&body=${encodeURIComponent(body)}`;
+
+    const endpoint = enquiryForm.action;
+    if (endpoint.includes("REPLACE_WITH_FORM_ID")) {
+      setFormState(
+        "error",
+        "Form setup is pending. Add the client’s Formspree form ID in enquire.html."
+      );
+      return;
+    }
+
+    const formData = new FormData(enquiryForm);
+    formData.set("_subject", `New Luxe Living trade enquiry - ${formData.get("product")}`);
+    formData.set("Page", window.location.href);
+
+    submitButton.disabled = true;
+    submitButton.setAttribute("aria-busy", "true");
+    submitButton.textContent = "Sending…";
+    setFormState("sending", "Sending your enquiry securely…");
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        const message = result.errors?.map((error) => error.message).join(" ");
+        throw new Error(message || "Formspree could not accept this enquiry.");
+      }
+
+      enquiryForm.reset();
+      setFormState(
+        "success",
+        "Thank you. Your trade enquiry has been sent to Luxe Living."
+      );
+    } catch (error) {
+      setFormState(
+        "error",
+        error.message || "The enquiry could not be sent. Please try again in a moment."
+      );
+    } finally {
+      submitButton.disabled = false;
+      submitButton.removeAttribute("aria-busy");
+      submitButton.textContent = defaultButtonLabel;
+    }
   });
 }

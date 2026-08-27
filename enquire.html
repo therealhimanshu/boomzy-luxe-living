@@ -40,7 +40,7 @@
             </p>
           </div>
           <div class="hero-art">
-            <div class="tilt-card"><img src="assets/contact-drapes.webp" alt="Luxury drapes close up" /></div>
+            <div class="tilt-card"><img src="assets/brochure/contact-hero.webp" alt="Luxury patterned drapes close up" decoding="async" /></div>
             <div class="glass-note">
               <h3>Personalized trade support</h3>
               <p>Pricing and recommendations are tailored to product choice, quantity, and project scope.</p>
@@ -53,7 +53,13 @@
             <span class="eyebrow">Enquiry form</span>
             <h2>Share product and project details.</h2>
             <p>This form prepares an email to Luxe Living with the buyer's trade information.</p>
-            <form id="enquiryPageForm">
+            <!-- CLIENT SETUP: Replace REPLACE_WITH_FORM_ID with the ID from Formspree's Integration page. -->
+            <form
+              id="enquiryPageForm"
+              action="https://formspree.io/f/REPLACE_WITH_FORM_ID"
+              method="POST"
+            >
+              <input type="hidden" name="_subject" value="New Luxe Living trade enquiry" />
               <label>
                 Product interest
                 <select name="product" id="productSelect">
@@ -104,9 +110,17 @@
                 Enquiry notes
                 <textarea name="notes" placeholder="Share finish preferences, timeline, sample needs, or quotation details."></textarea>
               </label>
-              <div class="wide">
-                <button class="pill-button" type="submit">Prepare enquiry email</button>
+              <div class="wide submit-row">
+                <button class="pill-button" type="submit" data-default-label="Send trade enquiry">
+                  Send trade enquiry
+                </button>
+                <p class="form-status" id="enquiryStatus" aria-live="polite"></p>
               </div>
+              <noscript>
+                <p class="wide form-status" data-state="info">
+                  JavaScript is disabled. The form will continue to Formspree after submission.
+                </p>
+              </noscript>
             </form>
           </div>
         </section>
