@@ -576,11 +576,11 @@ textarea {
 
 @media (max-width: 720px) {
   .nav {
-    position: sticky;
+    position: fixed;
     top: 0;
-    left: auto;
-    transform: none;
-    margin: 12px auto 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
     border-radius: 8px;
   }
 
@@ -872,7 +872,7 @@ textarea {
 
 @media (max-width: 720px) {
   .page-hero {
-    padding-top: 64px;
+    padding-top: 142px;
     overflow: clip;
   }
 }

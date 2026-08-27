@@ -972,8 +972,8 @@
         }
         to {
           opacity: 1;
-          transform: translateY(0) scale(1);
-          filter: blur(0);
+          transform: none;
+          filter: none;
         }
       }
 
@@ -999,11 +999,11 @@
 
       @media (max-width: 720px) {
         .nav {
-          position: sticky;
+          position: fixed;
           top: 0;
-          left: auto;
-          transform: none;
-          margin: 12px auto -77px;
+          left: 50%;
+          transform: translateX(-50%);
+          margin: 0;
           border-radius: 8px;
         }
 
@@ -1648,6 +1648,13 @@
     </dialog>
 
     <script>
+      const animatedSite = document.querySelector(".site");
+      const clearIntroState = () => document.body.classList.remove("intro-active");
+      animatedSite.addEventListener("animationend", (event) => {
+        if (event.animationName === "siteEnter") clearIntroState();
+      });
+      window.setTimeout(clearIntroState, 5000);
+
       const canvas = document.querySelector("#aura");
       const ctx = canvas.getContext("2d");
       let width = 0;
