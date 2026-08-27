@@ -23,26 +23,26 @@ const products = {
   curtains: {
     title: "Curtains & Drapes",
     label: "Curtains and drapes",
-    image: "assets/brochure/curtains-card.webp",
-    detail: "assets/brochure/curtains-detail.webp",
+    image: "assets/brochure/curtains-luxe-card.webp",
+    detail: "assets/brochure/curtains-luxe-detail.webp",
     lead:
       "A curated showcase of exceptional design and craftsmanship, selected for trade buyers who need elegant finishes across premium projects.",
   },
   blinds: {
     title: "Blinds",
     label: "Blinds",
-    image: "assets/brochure/blinds-card.webp",
-    detail: "assets/brochure/blinds-detail.webp",
+    image: "assets/brochure/venetian-blinds-card.webp",
+    detail: "assets/brochure/venetian-blinds-detail.webp",
     lead:
-      "Refined light control solutions for commercial, residential, and showroom environments where comfort and visual polish both matter.",
+      "Elegant Venetian blinds with crisp horizontal slats, precise light control, and a refined finish for residential, commercial, and showroom interiors.",
   },
   upholstery: {
     title: "Upholstery",
     label: "Upholstery",
-    image: "assets/brochure/upholstery-card.webp",
-    detail: "assets/brochure/upholstery-detail.webp",
+    image: "assets/brochure/upholstery-sofa-card.webp",
+    detail: "assets/brochure/upholstery-sofa-detail.webp",
     lead:
-      "Warm layered fabrics chosen for comfort, durability, and sophistication across seating, soft furnishings, and project interiors.",
+      "Sofa-led upholstery in warm, tactile fabrics chosen for comfort, durability, and sophistication across premium project interiors.",
   },
   wallpapers: {
     title: "Wallpapers",
