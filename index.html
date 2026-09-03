@@ -713,6 +713,30 @@
         color: rgba(255, 250, 240, 0.92);
       }
 
+      .contact-actions {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 22px;
+      }
+
+      .instagram-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        color: rgba(255, 250, 240, 0.9);
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        border-bottom: 1px solid rgba(255, 250, 240, 0.32);
+        padding-bottom: 2px;
+        transition: color 0.2s ease, border-color 0.2s ease;
+      }
+
+      .instagram-link:hover {
+        color: var(--gold);
+        border-color: var(--gold);
+      }
+
       dialog {
         width: min(760px, calc(100% - 28px));
         padding: 0;
@@ -1455,7 +1479,7 @@
               </div>
             </div>
             <div class="showroom-side">
-              <img src="assets/brochure/showroom-wallpaper.webp" alt="Elegant study with plaid wallpaper, curtains, and warm wooden flooring" loading="lazy" decoding="async" />
+              <img src="assets/brochure/showroom-vision.webp" alt="Sophisticated taupe living room with sculptural pendant lighting and statement wall art" loading="lazy" decoding="async" />
               <div class="showroom-label">
                 <h3>Vision</h3>
                 <p>
@@ -1565,13 +1589,22 @@
               Luxe Living team directly or share your requirements through the enquiry form.
             </p>
             <div class="contact-grid">
-              <a href="tel:+917404600307">+91 74046 00307</a>
               <a href="tel:+917551000083">+91 75510 00083</a>
-              <a href="tel:+917838988661">+91 78389 88661</a>
-              <a href="mailto:luxeliving0707@gmail.com">luxeliving0707@gmail.com</a>
-              <a class="wide" href="https://www.luxeliving.in">www.luxeliving.in</a>
+              <a href="tel:+919135000083">+91 91350 00083</a>
+              <a href="tel:+917578000083">+91 75780 00083</a>
+              <a href="mailto:info@luxelivingworld.com">info@luxelivingworld.com</a>
             </div>
-            <button class="pill-button" data-enquire="General trade enquiry">Open enquiry form</button>
+            <div class="contact-actions">
+              <button class="pill-button" data-enquire="General trade enquiry">Open enquiry form</button>
+              <a class="instagram-link" href="https://www.instagram.com/luxeliving.world?igsi=MTJuZHVsZTFncmt4dA==" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5.5" />
+                  <circle cx="12" cy="12" r="4.6" />
+                  <circle cx="17.4" cy="6.6" r="1.15" fill="currentColor" stroke="none" />
+                </svg>
+                Visit us on Instagram
+              </a>
+            </div>
           </div>
         </section>
       </main>
