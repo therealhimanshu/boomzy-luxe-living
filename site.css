@@ -419,13 +419,14 @@ p {
 }
 
 .product-image {
-  min-height: 610px;
+  height: 610px;
+  min-height: 0;
 }
 
 .product-image img {
   width: 100%;
   height: 100%;
-  min-height: 610px;
+  min-height: 0;
   object-fit: cover;
 }
 
@@ -809,7 +810,8 @@ textarea {
 
   .product-image,
   .product-image img {
-    min-height: 430px;
+    height: 430px;
+    min-height: 0;
   }
 }
 
@@ -849,10 +851,14 @@ textarea {
 
   .collection-card,
   .collection-card img,
-  .product-image,
-  .product-image img,
   .image-band {
     min-height: 360px;
+  }
+
+  .product-image,
+  .product-image img {
+    height: 360px;
+    min-height: 0;
   }
 
   .spec-list li {

@@ -23,16 +23,16 @@ const products = {
   curtains: {
     title: "Curtains & Drapes",
     label: "Curtains and drapes",
-    image: "assets/brochure/curtains-luxe-card.webp",
-    detail: "assets/brochure/curtains-luxe-detail.webp",
+    image: "assets/Curtains DSC01140.JPG",
+    detail: "assets/Curtains DSC01140.JPG",
     lead:
       "A curated showcase of exceptional design and craftsmanship, selected for trade buyers who need elegant finishes across premium projects.",
   },
   blinds: {
     title: "Blinds",
     label: "Blinds",
-    image: "assets/brochure/venetian-blinds-card.webp",
-    detail: "assets/brochure/venetian-blinds-detail.webp",
+    image: "assets/mein-zimmer-pin.webp",
+    detail: "assets/mein-zimmer-pin.webp",
     lead:
       "Elegant Venetian blinds with crisp horizontal slats, precise light control, and a refined finish for residential, commercial, and showroom interiors.",
   },
@@ -68,21 +68,12 @@ const productFromUrl = params.get("product");
 
 const setProductPage = (key) => {
   const product = products[key] || products.curtains;
-  const title = document.querySelector("#productTitle");
-  const lead = document.querySelector("#productLead");
-  const heroImage = document.querySelector("#productImage");
   const detailImage = document.querySelector("#detailImage");
-  const enquireLink = document.querySelector("#enquireLink");
 
-  if (!title) return;
+  if (!detailImage) return;
 
-  title.textContent = product.title;
-  lead.textContent = product.lead;
-  heroImage.src = product.image;
-  heroImage.alt = `${product.title} product image`;
   detailImage.src = product.detail;
   detailImage.alt = `${product.title} detail image`;
-  enquireLink.href = `enquire.html?product=${encodeURIComponent(product.label)}`;
 };
 
 const categorySelect = document.querySelector("#categorySelect");
