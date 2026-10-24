@@ -23,42 +23,42 @@ const products = {
   curtains: {
     title: "Curtains & Drapes",
     label: "Curtains and drapes",
-    image: "assets/Curtains DSC01140.JPG",
-    detail: "assets/Curtains DSC01140.JPG",
+    image: "assets/brochure/curtains-living-room",
+    detail: "assets/brochure/curtains-living-room",
     lead:
-      "A curated showcase of exceptional design and craftsmanship, selected for trade buyers who need elegant finishes across premium projects.",
+      "A curated showcase of exceptional design and craftsmanship, chosen to bring elegant finishes to every room of your home.",
   },
   blinds: {
     title: "Blinds",
     label: "Blinds",
-    image: "assets/mein-zimmer-pin.webp",
-    detail: "assets/mein-zimmer-pin.webp",
+    image: "assets/mein-zimmer-pin",
+    detail: "assets/mein-zimmer-pin",
     lead:
-      "Elegant Venetian blinds with crisp horizontal slats, precise light control, and a refined finish for residential, commercial, and showroom interiors.",
+      "Elegant Venetian blinds with crisp horizontal slats, precise light control, and a refined finish for bedrooms, living rooms, and home offices.",
   },
   upholstery: {
     title: "Upholstery",
     label: "Upholstery",
-    image: "assets/brochure/upholstery-sofa-card.webp",
-    detail: "assets/brochure/upholstery-sofa-detail.webp",
+    image: "assets/brochure/upholstery-sofa-card",
+    detail: "assets/brochure/upholstery-sofa-detail",
     lead:
-      "Sofa-led upholstery in warm, tactile fabrics chosen for comfort, durability, and sophistication across premium project interiors.",
+      "Sofa-led upholstery in warm, tactile fabrics chosen for comfort, durability, and sophistication in the rooms you live in most.",
   },
   wallpapers: {
     title: "Wallpapers",
     label: "Wallpapers",
-    image: "assets/brochure/wallpapers-card.webp",
-    detail: "assets/brochure/wallpapers-detail.webp",
+    image: "assets/brochure/wallpapers-card",
+    detail: "assets/brochure/wallpapers-detail",
     lead:
       "Decorative surfaces and statement patterns that give rooms individuality, depth, and a finished premium character.",
   },
   flooring: {
     title: "Wooden Flooring",
     label: "Wooden flooring",
-    image: "assets/brochure/flooring-card.webp",
-    detail: "assets/brochure/flooring-detail.webp",
+    image: "assets/brochure/flooring-card",
+    detail: "assets/brochure/flooring-detail",
     lead:
-      "Elegant floor finishes for warm, long-lasting interiors and project installations across homes, retail, and hospitality.",
+      "Elegant floor finishes for warm, inviting rooms that look beautiful for years to come.",
   },
 };
 
@@ -69,10 +69,12 @@ const productFromUrl = params.get("product");
 const setProductPage = (key) => {
   const product = products[key] || products.curtains;
   const detailImage = document.querySelector("#detailImage");
+  const detailSource = document.querySelector("#detailSource");
 
   if (!detailImage) return;
 
-  detailImage.src = product.detail;
+  if (detailSource) detailSource.srcset = `${product.detail}.avif`;
+  detailImage.src = `${product.detail}.webp`;
   detailImage.alt = `${product.title} detail image`;
 };
 
@@ -114,7 +116,7 @@ if (enquiryForm) {
     }
 
     const formData = new FormData(enquiryForm);
-    formData.set("_subject", `New Luxe Living trade enquiry - ${formData.get("product")}`);
+    formData.set("_subject", `New Luxe Living enquiry - ${formData.get("product")}`);
     formData.set("Page", window.location.href);
 
     submitButton.disabled = true;
@@ -138,7 +140,7 @@ if (enquiryForm) {
       enquiryForm.reset();
       setFormState(
         "success",
-        "Thank you. Your trade enquiry has been sent to Luxe Living."
+        "Thank you. Your enquiry has been sent to Luxe Living and our team will be in touch soon."
       );
     } catch (error) {
       setFormState(
